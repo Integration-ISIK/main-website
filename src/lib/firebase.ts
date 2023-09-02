@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
+import { onMount } from "svelte";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCtwjCDjGxYBtcJav39fpgFm-Ehve_Cjyo",
@@ -16,16 +16,17 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const firestore = getFirestore(app);
 export const functions = getFunctions(app);
 export const storage = getStorage(app);
 
-if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
-    console.log("Local environment detected!");
-    connectAuthEmulator(auth, `http://${location.hostname}:9099`);
-    connectFirestoreEmulator(firestore, location.hostname, 8080);
-    connectFunctionsEmulator(functions, location.hostname, 5001);
-    connectStorageEmulator(storage, location.hostname, 9199);
-}
+onMount(() => {
+    if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+        console.log("Local environment detected!");
+        connectAuthEmulator(auth, `http://${location.hostname}:9099`);
+        connectFirestoreEmulator(firestore, location.hostname, 8080);
+        connectFunctionsEmulator(functions, location.hostname, 5001);
+        connectStorageEmulator(storage, location.hostname, 9199);
+    }
+})
