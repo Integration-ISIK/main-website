@@ -12,7 +12,7 @@ const firebaseConfig = {
     storageBucket: "integration-isik.appspot.com",
     messagingSenderId: "807895583350",
     appId: "1:807895583350:web:ac5de8036f088e16822d57",
-    measurementId: "G-FN6K7SEPND"
+    measurementId: "G-FN6K7SEPND",
 };
 
 export const app = initializeApp(firebaseConfig);
@@ -22,11 +22,14 @@ export const functions = getFunctions(app);
 export const storage = getStorage(app);
 
 onMount(() => {
-    if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+    if (
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "localhost"
+    ) {
         console.log("Local environment detected!");
         connectAuthEmulator(auth, `http://${location.hostname}:9099`);
         connectFirestoreEmulator(firestore, location.hostname, 8080);
         connectFunctionsEmulator(functions, location.hostname, 5001);
         connectStorageEmulator(storage, location.hostname, 9199);
     }
-})
+});
