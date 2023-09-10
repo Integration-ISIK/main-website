@@ -12,7 +12,7 @@ Maintained by the Digital Infrastructure Committee.
 ## Technologies
 
 The website is built using [SvelteKit](https://kit.svelte.dev/), and uses [Firebase](https://firebase.google.com/) for essentially all backend functions.
-We use [Cloudflare Pages](https://pages.cloudflare.com/) to deploy our website, and Bun for local development and testing.
+We use [Cloudflare Pages](https://pages.cloudflare.com/) to deploy our website, and [Bun](https://bun.sh/) for local development and testing.
 
 ## Contributing
 
