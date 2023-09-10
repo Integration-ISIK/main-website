@@ -1,0 +1,37 @@
+name: Lint
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      # ESLint and Prettier must be in `package.json`
+      - name: Install dependencies
+        run: bun i
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: false
+          prettier: true

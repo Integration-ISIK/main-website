@@ -44,6 +44,17 @@
     },
     "prettier": {
         "tabWidth": 4,
+        "overrides": [
+            {
+                "files": [
+                    "*.yml",
+                    "*.yaml"
+                ],
+                "options": {
+                    "tabWidth": 2
+                }
+            }
+        ],
         "plugins": [
             "prettier-plugin-svelte",
             "prettier-plugin-tailwindcss"
