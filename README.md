@@ -1,38 +1,35 @@
-# create-svelte
+# Integration Main Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Source code for the main website for Integration, the annual techno-cultural-sports fest of the students of Indian Statistical Institute, Kolkata.
 
-## Creating a project
+Maintained by the Digital Infrastructure Committee.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Branches
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+-   `main` - The live, production site deployed at https://integrationfest.in.
+-   `staging` - The staging branch for all changes. All contributions first end up here.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Technologies
 
-## Developing
+The website is built using [SvelteKit](https://kit.svelte.dev/), and uses [Firebase](https://firebase.google.com/) for essentially all backend functions.
+We use [Cloudflare Pages](https://pages.cloudflare.com/) to deploy our website, and [Bun](https://bun.sh/) for local development and testing.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Contributing
 
-```bash
-npm run dev
+### Setting up a development environment
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Fork this repository.
+2. Clone this repository locally and `cd` to it.
+3. Install [Bun](https://bun.sh/).
+4. Install `firebase-tools` globally on your system using `npm i -g firebase-tools`.
+5. Install dependencies using `bun i`.
+6. Create a new branch based off `staging` for your changes.
+7. To start a dev server, run `bun dev`.
 
-## Building
+### Development for Cloud Functions
 
-To create a production version of your app:
+[Firebase Cloud Functions](https://firebase.google.com/docs/functions) doesn't support Bun as a runtime yet. Nevertheless, the emulators work just fine with Bun for local development. However, the `/functions` directory still maintains `npm`-based dependency management so that we can deploy successfully.
 
-```bash
-npm run build
-```
+### Code formatting using Prettier
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The project ships with the recommended Prettier configuration, contributions not following those guidelines will be rejected. Check using `bun lint`. We recommend enabling `editor.formatOnSave`, but to format manually you can always run `bun format`.
