@@ -6,4 +6,6 @@
 
 :root {
     font-family: neighbor;
+    font-feature-settings: "ss03";
+    letter-spacing: 2;
 }
