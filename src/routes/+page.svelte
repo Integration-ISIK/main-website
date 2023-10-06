@@ -1,4 +1,8 @@
 <script>
+	import Title from "$lib/images/home-integration-title.svg"
+	import Toucan from "$lib/images/home-toucan.svg"
+	import Tiago from "$lib/images/home-tiago.svg"
+	import Guests from "$lib/images/home-guests.svg"
 </script>
 
 <svelte:head>
@@ -11,13 +15,13 @@
 		<div class="text-5xl md:text-7xl xl:hidden font-black uppercase">
 			Integration 2024
 		</div>
-		<img class="hidden xl:block xl:scale-110" src="/src/lib/images/home-integration-title.svg" alt="Integration 2024"/>
+		<img class="hidden xl:block xl:scale-110" src={Title} alt="Integration 2024"/>
 		<div class="mt-2 text-3xl md:text-4xl xl:text-6xl font-semibold italic">
 			Coming soon...
 		</div>
 	</div>
 </section>
-<img src="/src/lib/images/home-toucan.svg" alt="Toucan" class="-translate-y-[60%] z-[1] float-left hidden 2xl:block">
+<img src={Toucan} alt="Toucan" class="-translate-y-[60%] z-[1] float-left hidden 2xl:block">
 <section class="h-[50vw] z-[2] p-12">
 	<h2 class="text-6xl font-extrabold text-right">What is INTEGRATION?</h2>
 	<div class="mt-6 text-2xl font-semibold text-justify">
@@ -34,8 +38,8 @@
 			like Sandip Ray.
 		</p>
 	</div>
-	<img src="/src/lib/images/home-tiago.svg" alt="Tiago, our mascot" class="z-[1] scale-[70%] -translate-y-10 translate-x-8 absolute float-right right-1 hidden 2xl:block">
-	<img src="/src/lib/images/home-guests.svg" alt="Guests" class="z-[1] absolute float-left -left-[17vw] -translate-y-8 hidden 2xl:block"/>
+	<img src={Tiago} alt="Tiago, our mascot" class="z-[1] scale-[70%] -translate-y-10 translate-x-8 absolute float-right right-1 hidden 2xl:block">
+	<img src={Guests} alt="Guests" class="z-[1] absolute float-left -left-[17vw] -translate-y-8 hidden 2xl:block"/>
 	<h2 class="mt-12 2xl:mt-24 text-6xl font-extrabold">Moving Forward</h2>
 	<div class="mt-6 text-2xl font-semibold text-justify">
 		<p>
